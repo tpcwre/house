@@ -1,4 +1,4 @@
-
+<?php if (!defined('THINK_PATH')) exit();?>
 
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-sclae=1.0,user-scalable=0" />
@@ -201,35 +201,29 @@
 
 
 <!--
-<volist name='arr' id='vo'>
-	{$vo.id}--{$vo.lxr}<br>
-</volist>
+<?php if(is_array($arr)): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i; echo ($vo["id"]); ?>--<?php echo ($vo["lxr"]); ?><br><?php endforeach; endif; else: echo "" ;endif; ?>
 
 
 
 
 <div style='display:inline-block;margin:3px'>
-	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'>上页</a>
+	<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['plast']); ?>'>上页</a>
 </div>
-<for start="$page2['pmin']" end="$page2['pmax']" comparison='elt' name='k'>
-	<if condition="$page2['pnow'] eq $k">
-		<div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
-			<a style='text-decoration:none;color:#000' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
+<?php $__FOR_START_8919__=$page2['pmin'];$__FOR_END_8919__=$page2['pmax'];for($k=$__FOR_START_8919__;$k <= $__FOR_END_8919__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+			<a style='text-decoration:none;color:#000' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 		</div>	
-	<else/>
+	<?php else: ?>
 		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none;' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
-		</div>
-	</if>
-</for>
+			<a style='text-decoration:none;' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
+		</div><?php endif; } ?>
 <div style='display:inline-block;margin:3px'>
-	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnext']}'>下页</a>
+	<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['pnext']); ?>'>下页</a>
 </div>
 <div style='display:inline-block;margin:3px'>
-	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow=1'>首页</a>
+	<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=1'>首页</a>
 </div>
 <div style='display:inline-block;margin:3px'>
-	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
+	<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['pnum']); ?>'>尾页</a>
 </div>
 
 -->
