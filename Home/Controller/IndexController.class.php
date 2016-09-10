@@ -9,7 +9,11 @@ class IndexController extends Controller {
         $page = $myfn->page($h);
     	//$page = $this->page($h);
     	$this->assign('page2',$page);
-    	$arr = $h->field('id,lxr')->page($page['pnow'],$page['pline'])->select();
+    	$arr = $h->field('bt,wz,mj,sj,lx,fbsj')->page($page['pnow'],$page['pline'])->select();
+      //  echo '<pre>';
+       // dump($arr);exit;
+      //  dump($arr[0]);
+
     	$this->assign('arr',$arr);
     	$this->display();
     }
