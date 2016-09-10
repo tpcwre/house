@@ -1,0 +1,34 @@
+
+
+
+
+<volist name='arr' id='vo'>
+	{$vo.id}--{$vo.lxr}<br>
+</volist>
+
+
+
+
+<div style='display:inline-block;margin:3px'>
+	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'>上页</a>
+</div>
+<for start="$page2['pmin']" end="$page2['pmax']" comparison='elt' name='k'>
+	<if condition="$page2['pnow'] eq $k">
+		<div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+			<a style='text-decoration:none;color:#000' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
+		</div>	
+	<else/>
+		<div style='display:inline-block;margin:3px'>
+			<a style='text-decoration:none;' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
+		</div>
+	</if>
+</for>
+<div style='display:inline-block;margin:3px'>
+	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnext']}'>下页</a>
+</div>
+<div style='display:inline-block;margin:3px'>
+	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow=1'>首页</a>
+</div>
+<div style='display:inline-block;margin:3px'>
+	<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
+</div>
