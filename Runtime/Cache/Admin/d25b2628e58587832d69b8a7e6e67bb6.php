@@ -35,16 +35,15 @@
 	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快递代收</div>
 	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'>房屋出售</div>
 </div>
+<div style='background:#fee;font:normal bold 16px/40px normal;text-align:center'>后台管理</div>
 
-<div style='font:normal normal 12px normal;padding-left:15px;margin-bottom:20px'>
+<div style='font:normal normal 12px normal;padding-left:15px;margin-bottom:80px'>
 
 	<div class='dh' style='margin-top:15px'>
-		<div onclick="location='/house/index.php/Home/Index/index/type/qb'">全部</div>
-		<div onclick="location='/house/index.php/Home/Index/index/type/qx'">全新</div>
-		<div onclick="location='/house/index.php/Home/Index/index/type/es'">二手</div>
-		<div onclick="location='/house/index.php/Home/Index/index/type/cz'">出租</div>
+		<div onclick="location=''">信息管理</div>
+		<div onclick="location=''">我的发布</div>
 		<div style='border:0px;font:normal normal 12px/50px normal'>
-			<a style='text-decoration:none' href='/house/index.php/Home/Index/addinfo'>发布信息</a>
+			<a style='text-decoration:none' href='/house/index.php/Admin/Index/addinfo'>发布信息</a>
 		</div>
 	</div>
 
@@ -60,21 +59,19 @@
 				<div style='padding:3 0 0 30px '>面积：<?php echo ($vo["mj"]); ?>平　售价：<?php echo ($vo["sj"]); ?>万</div>
 				<div style='padding:3 0 0 30px;' >
 					<?php echo ($vo["fbsj"]); ?>
-					<a href='/house/index.php/Home/Index/moreinfo?id=<?php echo ($vo["id"]); ?>' style='text-decoration:none'>　详细信息...</a>
+
+					<a href='/house/index.php/Home/Index/moreinfo/id/<?php echo ($vo["id"]); ?>' style='text-decoration:none'>　查看 </a>
 				</div>
 			</div>
 		</div><?php endforeach; endif; else: echo "" ;endif; ?>
 
-</div>
-
-
 
 <!--分页-->
-<div style='margin-bottom:100px'>
+
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['plast']); ?>'>上页</a>
 	</div>
-	<?php $__FOR_START_14051__=$page2['pmin'];$__FOR_END_14051__=$page2['pmax'];for($k=$__FOR_START_14051__;$k <= $__FOR_END_14051__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+	<?php $__FOR_START_22105__=$page2['pmin'];$__FOR_END_22105__=$page2['pmax'];for($k=$__FOR_START_22105__;$k <= $__FOR_END_22105__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
 				<a style='text-decoration:none;color:#000' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 			</div>	
 		<?php else: ?>
@@ -90,11 +87,11 @@
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['pnum']); ?>'>尾页</a>
 	</div>
+
 </div>
 
-
 <div id='bottom' style="position:fixed;top:650px;width:100%;height:10%;">
-	<img src='/house/Public/bottom.png' width=100% onclick="location='/house/index.php/Home/Index/myhouse'"/>
+	<img src='/house/Public/bottom.png' width=100% onclick="location='/house/index.php/Admin/Index/myhouse'"/>
 </div>
 <script>
 	<!--设置底部功能栏-->
@@ -129,7 +126,7 @@
 <div style='display:inline-block;margin:3px'>
 	<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['plast']); ?>'>上页</a>
 </div>
-<?php $__FOR_START_14560__=$page2['pmin'];$__FOR_END_14560__=$page2['pmax'];for($k=$__FOR_START_14560__;$k <= $__FOR_END_14560__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+<?php $__FOR_START_4638__=$page2['pmin'];$__FOR_END_4638__=$page2['pmax'];for($k=$__FOR_START_4638__;$k <= $__FOR_END_4638__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
 			<a style='text-decoration:none;color:#000' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 		</div>	
 	<?php else: ?>

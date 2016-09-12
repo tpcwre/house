@@ -5,4 +5,11 @@
 //	define('BIND_MODULE','Admin');
 	define('APP_DEBUG',true);			//-- 开启调试模式
 
+	function vardump($arr){
+		echo '<pre>';
+			var_dump($arr);
+		echo '</pre>';
+
+	}
+
 	require "../ThinkPHP/ThinkPHP.php";

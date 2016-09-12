@@ -26,11 +26,12 @@
 </div>
 
 <div style='margin:20 0 30 0;text-align:center'>	<!--导航-->
-	出售三室两厅一厨两卫
+	<?php echo ($arr["bt"]); ?>
 </div>
 <div style='font:normal normal 12px normal;border-bottom:0px solid;height:500px'>
-	<div style='border:0px solid;width:150px;height:150px;padding-top:15px' class='float'>
-		<img src='http://cdnweb.b5m.com/web/cmsphp/article/201505/a9758a02bc1be1d7659c4a1b490d6adc.jpg' width=150 height=150/>
+	<div style='border:0px solid;width:150px;height:150px;padding-top:15px;margin-left:5px' class='float'>
+		<?php if($arr['fwtp']=='null'){ $imgs[0]='01.png'; }else{ $imgs = json_decode($arr['fwtp']); } ?>
+		<img src='/house/Public/<?php echo ($imgs[0]); ?>' width=150 height=150/>
 	</div>
 	<div style='border:0px solid;width:48%;display;margin-left:10px;font-size:18px' class='float'>
 		<div style='margin-bottom:5px'>房源类型：<?php echo ($arr["lx"]); ?></div>
@@ -44,10 +45,15 @@
 	</div>
 	<div style='clear:both;' ></div>
 	<div style='margin-top:30px;border-bottom:1px solid;border-color:#ccc' ></div>
-	<div style='margin-top:35px;font-size:20px'>房屋详细信息：</div>
-	<div style='padding:10 20;'><?php echo ($arr["xxxx"]); ?></div>
-	<div>
-		<?php echo ($arr["hx"]); ?>
+
+	<div style='margin-top:35px;font-size:20px;text-align:center'>房屋详细信息：</div>
+
+	<div style='padding:10 20;width:80%;margin:0 auto;padding:15px;border:0px solid;font:normal normal 15px/18px normal'>
+		<?php echo ($arr["xxxx"]); ?>
+	</div>
+
+	<div style='width:80%;margin:0 auto;padding:15px;border:0px solid'>
+		<?php if(is_array($imgs)): $i = 0; $__LIST__ = $imgs;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style='margin-top:10px'><img src='/house/Public/<?php echo ($vo); ?>' width=100%/></div><?php endforeach; endif; else: echo "" ;endif; ?>
 	</div>
 </div>
 <div>

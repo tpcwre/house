@@ -17,9 +17,9 @@ class Myfn{
 			pnext 	下页
 			pnum 	最后一页
 */    
-    public function page($h,$pline=''){
+    public function page($count,$pline=''){
      	$pnow = I('get.pnow')?:1;		//当前页
-    	$count = $h->count();			//总条数
+    	//$count = $h->count();			//总条数
     	$pline = empty($pline)?10:$pline;					//每页显示的条数
     	$pnum = ceil($count/$pline);	//总页数
 
