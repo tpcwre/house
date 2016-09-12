@@ -3,6 +3,10 @@
 <head>
 <meta charset='utf-8' />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-sclae=1.0,user-scalable=0" />
+<script src='__PUBLIC__/js/jquery.js'></script>
+<script>
+	sessionStorage.navigation='wdxx';
+</script>
 <style>
 	.inptext{
 		width:30px;
@@ -27,6 +31,7 @@
 </head>
 <body style="padding:0;margin:0">
 
+<!--
 <div style='height:40;background:#4192E3;text-align:center;font:normal bold 15px/40px normal'>
 	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:12%;height:40px;background:url(__PUBLIC__/01.png);background-repeat:no-repeat' onclick="history.go(-1)"></div>
 	
@@ -35,12 +40,15 @@
 	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快递代收</div>
 	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'>房屋出售</div>
 </div>
+-->
+
+<!--引入house导航-->
+<include file='inc/house_navigation' />
 
 
 
 
-
-<div style='height:40;background:#fee;text-align:center;font:normal bold 15px/40px normal'>
+<div style='height:60;background:#fee;text-align:center;font:normal bold 20px/60px normal'>
 	我发布的信息
 </div>
 
@@ -67,8 +75,9 @@
 			<span style='color:#999'>发布时间：</span><span style='color:#555'>{$vo.fbsj}</span>
 		</div>
 		<div style='border:10x solid;margin:10px 0'>
-			<div style='margin-right:10px;border:1px solid #66CC66;padding:5px;color:#66CC66;float:left' onclick="location='__URL__/addimg/id/{$vo.id}'">添加图片</div>
-			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left' onclick="location='__URL__/edit/id/{$vo.id}'">修改资料</div>
+			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px' onclick="location='__URL__/moreinfo/id/{$vo.id}'">查看</div>
+			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px;' onclick="location='__URL__/edit/id/{$vo.id}'">修改资料</div>
+			<div style='margin-right:10px;border:1px solid #66CC66;padding:5px;color:#66CC66;float:left' onclick="location='__URL__/addimg/id/{$vo.id}'">图片管理</div>
 			<div style='border:1px solid #4192E3;padding:5px;color:#4192E3;float:right' onclick="location='__URL__/del?id={$vo.id}'">删除</div>
 		</div>
 	</div>
@@ -78,6 +87,8 @@
 
 <!--分页-->
 <if condition="$page2['pnum'] gt 0" >
+<include file='inc/house_fpage' />
+<!--
 <div style='margin-bottom:100px'>
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'>上页</a>
@@ -103,6 +114,7 @@
 		<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
 	</div>
 <div>
+-->
 </if>
 
 

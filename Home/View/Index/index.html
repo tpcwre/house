@@ -3,6 +3,10 @@
 <head>
 <meta charset='utf-8' />
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-sclae=1.0,user-scalable=0" />
+<script src='__PUBLIC__/js/jquery.js'></script>
+<script>
+	sessionStorage.navigation='fyxx';
+</script>
 <style>
 	.inptext{
 		width:30px;
@@ -27,14 +31,23 @@
 </head>
 <body style="padding:0;margin:0">
 
+
+
+<!--引入house 导航栏-->
+<include file="inc/house_navigation" />
+
+
+<!--
 <div style='height:40;background:#4192E3;text-align:center;font:normal bold 15px/40px normal'>
 	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:12%;height:40px;background:url(__PUBLIC__/01.png);background-repeat:no-repeat'></div>
 	
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>物业缴费</div>
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快速报修</div>
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快递代收</div>
-	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'>房屋出售</div>
+	<div id='fyxx' style='background:#fff;float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%;color:#4192E3' onclick="location='__URL__/index'">房源信息</div>
+	<div id='fbxx' style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%' onclick="location='__URL__/addinfo'">发布信息</div>
+	<div id='wdxx' style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>我的信息</div>
+	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'></div>
 </div>
+-->
+
 
 <div style='font:normal normal 12px normal;padding-left:15px;margin-bottom:20px'>
 
@@ -43,9 +56,11 @@
 		<div onclick="location='__ACTION__/type/qx'">全新</div>
 		<div onclick="location='__ACTION__/type/es'">二手</div>
 		<div onclick="location='__ACTION__/type/cz'">出租</div>
+		<!---
 		<div style='border:0px;font:normal normal 12px/50px normal'>
 			<a style='text-decoration:none' href='__URL__/addinfo'>发布信息</a>
 		</div>
+		-->
 	</div>
 
 
@@ -79,45 +94,20 @@
 
 <!--分页-->
 <if condition="$page2['pnum'] gt 0" >
-	<div style='margin-bottom:100px'>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'>上页</a>
-		</div>
-		<for start="$page2['pmin']" end="$page2['pmax']" comparison='elt' name='k'>
-			<if condition="$page2['pnow'] eq $k">
-				<div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
-					<a style='text-decoration:none;color:#000' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
-				</div>	
-			<else/>
-				<div style='display:inline-block;margin:3px'>
-					<a style='text-decoration:none;' href='{$Think.server.PHP_SELF}?pnow={$k}'>{$k}</a>
-				</div>
-			</if>
-		</for>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnext']}'>下页</a>
-		</div>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow=1'>首页</a>
-		</div>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
-		</div>
-	</div>
+	<include file='inc/house_fpage' />
 </if>
 
 
-<div id='bottom' style="position:fixed;top:650px;width:100%;height:10%;">
+
+<!--
+<div id='bottom' style="position:fixed;top:650px;width:100%;height:200px;">
 	<img src='__PUBLIC__/bottom.png' width=100% onclick="location='__URL__/myhouse'"/>
+
 </div>
-<script>
-	<!--设置底部功能栏-->
-	var sh = window.screen.height;
-	var oh = sh - 68;
-	var bottom = document.getElementById('bottom');
-	//alert(bottom.style.top+'-'+sh+'-'+oh);
-	bottom.style.top=oh+'px';
-</script>
+-->
+
+<include file='inc/house_navigation_bottom' />
+
 </body>
 </html>
 

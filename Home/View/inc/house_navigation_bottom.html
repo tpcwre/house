@@ -1,0 +1,25 @@
+
+
+<div id='navigation_bottom' >
+	<div style='height:100%;width:20%;border:0px solid;float:left;box-sizing:border-box' onclick="location='http://miaoto.com/dating/dating_filter'"></div>
+	<div style='height:100%;width:20%;border:0px solid;float:left;box-sizing:border-box' onclick="location='http://miaoto.com/group/group_index'"></div>
+	<div style='height:100%;width:20%;border:0px solid;float:left;box-sizing:border-box' onclick="location='http://miaoto.com/owner/gold_index'"></div>
+	<div style='height:100%;width:20%;border:0px solid;float:left;box-sizing:border-box' onclick="location='http://miaoto.com/life/l_life_index'"></div>
+	<div style='height:100%;width:20%;border:0px solid;float:left;box-sizing:border-box' onclick="location='http://miaoto.com/owner/ownerindex2'"></div>
+
+</div>
+<script>
+	<!--设置底部功能栏-->
+	$(function(){
+		var ssw = window.screen.width;		//屏幕宽度
+		var tth = ssw*0.165;				//计算出底部导航条的高度
+		$("#navigation_bottom").css('height',tth);
+		$("#navigation_bottom").css('background','url(__PUBLIC__/bottom.png)');
+		$("#navigation_bottom").css('backgroundSize','cover');
+		var ssh = window.screen.height;		//屏幕高度
+		var tttop = ssh - tth;				//底部导航的定位点
+		$('#navigation_bottom').css('width','100%');
+		$("#navigation_bottom").css("position",'fixed');
+		$("#navigation_bottom").css('top',tttop);
+	});
+</script>

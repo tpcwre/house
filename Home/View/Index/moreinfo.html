@@ -1,5 +1,9 @@
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-sclae=1.0,user-scalable=0" />
+<script src='__PUBLIC__/js/jquery.js'></script>
+<script>
+	sessionStorage.navigation='fyxx';
+</script>
 <style>
 	.inptext{
 		width:30px;
@@ -16,6 +20,8 @@
 </head>
 <body style="padding:0;margin:0">
 
+
+<!--
 <div style='height:40;background:#4192E3;text-align:center;font:normal bold 15px/40px normal'>
 	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:12%;height:40px;background:url(__PUBLIC__/01.png);background-repeat:no-repeat' onclick="history.go(-1)"></div>
 	
@@ -25,10 +31,18 @@
 	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'>房屋出售</div>
 </div>
 
-<div style='margin:20 0 30 0;text-align:center'>	<!--导航-->
+-->
+
+
+<!--引入house导航-->
+<include file='inc/house_navigation' />
+
+
+<div style='margin:20 0 30 0;text-align:center'>	
 	{$arr.bt}
 </div>
-<div style='font:normal normal 12px normal;border-bottom:0px solid;height:500px'>
+
+<div style='font:normal normal 12px normal;border:0px solid;margin-bottom:100px'>
 	<div style='border:0px solid;width:150px;height:150px;padding-top:15px;margin-left:5px' class='float'>
 		<php>
 			if($arr['fwtp']=='null'){
@@ -64,8 +78,8 @@
 			<div style='margin-top:10px'><img src='__PUBLIC__/{$vo}' width=100%/></div>
 		</volist>
 	</div>
+	
 </div>
-<div>
-</div>
+
 
 </body>
