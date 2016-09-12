@@ -56,7 +56,7 @@
 	</div>
 	<div style="color:#faa;text-align:center" onclick="location='/house/index.php/Home/Index/imgdel/id/<?php echo ($id); ?>/item/<?php echo ($key); ?>'">删除</div><?php endforeach; endif; else: echo "" ;endif; ?>
 
-
+<div style='margin:100px'></div>
 
 
 <!--分页
@@ -64,7 +64,7 @@
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['plast']); ?>'>上页</a>
 	</div>
-	<?php $__FOR_START_19629__=$page2['pmin'];$__FOR_END_19629__=$page2['pmax'];for($k=$__FOR_START_19629__;$k <= $__FOR_END_19629__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+	<?php $__FOR_START_25963__=$page2['pmin'];$__FOR_END_25963__=$page2['pmax'];for($k=$__FOR_START_25963__;$k <= $__FOR_END_25963__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
 				<a style='text-decoration:none;color:#000' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 			</div>	
 		<?php else: ?>

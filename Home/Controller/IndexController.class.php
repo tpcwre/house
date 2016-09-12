@@ -7,7 +7,7 @@ class IndexController extends Controller {
 
     //首页
     public function index(){
-        session('uid',402);
+        session('uid',401);
         $uid = I('session.uid');
         if($uid == 401){
             $this->redirect('Admin/Index/index');exit;

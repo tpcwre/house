@@ -77,7 +77,7 @@
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($page2['plast']); ?>'>上页</a>
 	</div>
-	<?php $__FOR_START_21267__=$page2['pmin'];$__FOR_END_21267__=$page2['pmax'];for($k=$__FOR_START_21267__;$k <= $__FOR_END_21267__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
+	<?php $__FOR_START_13012__=$page2['pmin'];$__FOR_END_13012__=$page2['pmax'];for($k=$__FOR_START_13012__;$k <= $__FOR_END_13012__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px'>
 				<a style='text-decoration:none;color:#000' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 			</div>	
 		<?php else: ?>
