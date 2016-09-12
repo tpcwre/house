@@ -79,7 +79,7 @@
 
 
 <!--分页-->
-
+	<if condition="$page2['pnum'] gt 0" >
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'>上页</a>
 	</div>
@@ -103,6 +103,9 @@
 	<div style='display:inline-block;margin:3px'>
 		<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
 	</div>
+	</if>
+
+
 </div>
 
 <div id='bottom' style="position:fixed;top:650px;width:100%;height:10%;">
