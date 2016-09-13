@@ -1,85 +1,16 @@
-<head>
-<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-sclae=1.0,user-scalable=0" />
-<script src='__PUBLIC__/js/jquery.js'></script>
-<script>
-	sessionStorage.navigation='fyxx';
-</script>
-<style>
-	.inptext{
-		width:30px;
-	}
 
-	.iorb{
-		display:inline-block;
-	}
-	.float{
-		float:left;
-	}
+<!--引入基础模板，内容有：公共head头属性，顶部导航，底部导航-->
+<extend name='./Public/base/base.html' />
 
-</style>
-</head>
-<body style="padding:0;margin:0">
+<!--重写添加个性化head头属性-->
+<block name='head'>
+	<script>
+		sessionStorage.navigation='fyxx';
+	</script>
+	<title>房源详细信息</title>
+</block>
 
-
-<!--
-<div style='height:40;background:#4192E3;text-align:center;font:normal bold 15px/40px normal'>
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:12%;height:40px;background:url(__PUBLIC__/01.png);background-repeat:no-repeat' onclick="history.go(-1)"></div>
-	
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>物业缴费</div>
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快速报修</div>
-	<div style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%'>快递代收</div>
-	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:22%;background:#fff'>房屋出售</div>
-</div>
-
--->
-
-
-<!--引入house导航-->
-<include file='inc/house_navigation' />
-
-
-<div style='margin:20 0 30 0;text-align:center'>	
-	{$arr.bt}
-</div>
-
-<div style='font:normal normal 12px normal;border:0px solid;margin-bottom:100px'>
-	<div style='border:0px solid;width:150px;height:150px;padding-top:15px;margin-left:5px' class='float'>
-		<php>
-			if($arr['fwtp']=='null'){
-				$imgs[0]='01.png';
-			}else{
-				$imgs = json_decode($arr['fwtp']);
-
-			}
-		</php>
-		<img src='__PUBLIC__/{$imgs[0]}' width=150 height=150/>
-	</div>
-	<div style='border:0px solid;width:48%;display;margin-left:10px;font-size:18px' class='float'>
-		<div style='margin-bottom:5px'>房源类型：{$arr.lx}</div>
-		<div style='margin-bottom:5px'>户型：{$arr.hx}</div>
-		<div style='margin-bottom:5px'>售价：{$arr.sj}万元</div>
-		<div style='margin-bottom:5px'>面积：{$arr.mj}平米</div>
-		<div style='margin-bottom:5px'>位置：{$arr.wz}</div>
-		<div style='margin-bottom:5px'>电话：{$arr.dh}</div>
-		<div style='margin-bottom:5px'>联系人：{$arr.lxr}</div>
-		<div ></div>
-	</div>
-	<div style='clear:both;' ></div>
-	<div style='margin-top:30px;border-bottom:1px solid;border-color:#ccc' ></div>
-
-	<div style='margin-top:35px;font-size:20px;text-align:center'>房屋详细信息：</div>
-
-	<div style='padding:10 20;width:80%;margin:0 auto;padding:15px;border:0px solid;font:normal normal 15px/18px normal'>
-		{$arr.xxxx}
-	</div>
-
-	<div style='width:80%;margin:0 auto;padding:15px;border:0px solid'>
-		<volist name='imgs' id='vo'>
-			<div style='margin-top:10px'><img src='__PUBLIC__/{$vo}' width=100%/></div>
-		</volist>
-	</div>
-	
-</div>
-
-
-</body>
+<!--重写添加body体内容-->
+<block name='body'>
+	<include file="./PUblic/share/house_moreinfo.html" />
+</block>

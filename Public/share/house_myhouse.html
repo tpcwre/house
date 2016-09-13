@@ -1,0 +1,31 @@
+
+<div style='height:60;background:#fee;text-align:center;font:normal bold 20px/60px normal'>
+	我发布的信息
+</div>
+<volist name='arr' id='vo'>
+	<div style="border-bottom:7px solid #eee;height:130px;padding:20px 10px;font-size:12px">
+		<div style='height:20px;border:0px solid'>
+			<div style='float:left'><span style='color:#999'>标题：</span><span style='color:#555'>{$vo.bt}</span></div>
+			<div style='float:right;border:0px solid;color:#ED5565'>
+				<php>echo $vo['stat']==1?'正常显示':'暂封';</php>
+			</div>
+		</div>
+		<div style='margin-top:10px'>
+			<span style='color:#999'>面积：</span><span style='color:#555'>{$vo.mj}平方</span>　　
+			<span style='color:#999'>售价：</span><span style='color:#555'>{$vo.sj}万元</span>
+		</div>
+		<div style='margin-top:10px'>
+			<span style='color:#999'>位置：</span><span style='color:#555'>{$vo.wz}</span>　　
+			<span style='color:#999'>户型：</span><span style='color:#555'>{$vo.hx}</span>
+		</div>
+		<div style='margin-top:10px'>
+			<span style='color:#999'>发布时间：</span><span style='color:#555'>{$vo.fbsj}</span>
+		</div>
+		<div style='border:10x solid;margin:10px 0'>
+			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px' onclick="location='__URL__/moreinfo/id/{$vo.id}'">查看</div>
+			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px;' onclick="location='__URL__/edit/id/{$vo.id}'">修改资料</div>
+			<div style='margin-right:10px;border:1px solid #66CC66;padding:5px;color:#66CC66;float:left' onclick="location='__URL__/addimg/id/{$vo.id}'">图片管理</div>
+			<div style='border:1px solid #4192E3;padding:5px;color:#4192E3;float:right' onclick="location='__URL__/del?id={$vo.id}'">删除</div>
+		</div>
+	</div>
+</volist>

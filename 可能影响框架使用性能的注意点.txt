@@ -1,0 +1,9 @@
+
+
+//--- 对于head头公共属性的引用，或引起框架性能下降
+
+	<!--引入head公共属性-->
+	<include file='./Public/share/xxx.html' />
+	<include file='inc/xxx' />
+
+	因为引用位置的不同，或许会影响到框架的使用性能，如果出现性能问题，可尝试修改这里！

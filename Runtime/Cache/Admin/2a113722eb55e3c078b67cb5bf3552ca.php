@@ -7,10 +7,8 @@
 <script src='/house/Public/js/jquery.js'></script>
 	
 	
-	<script>
-		sessionStorage.navigation='wdxx';
-	</script>
-	<title>我的信息</title>
+	<title>房屋信息后台管理</title>
+	<script>sessionStorage.navigation='fyxx';</script>
 
 	
 </head>
@@ -36,7 +34,7 @@ $(function(){
 		history.go(-1);
 	});
 	$('#fyxx').click(function(){
-			location='/house/index.php/Home/Index/index';
+			location='/house/index.php/Admin/Index/index';
 	});
 	$('#fbxx').click(function(){
 		location="/house/index.php/Home/Index/addinfo";
@@ -45,7 +43,7 @@ $(function(){
 		if(uid == '401'){
 			location="/house/index.php/Home/Index/myhouse";
 		}else{
-			location="/house/index.php/Home/Index/myhouse";
+			location="/house/index.php/Admin/Index/myhouse";
 		}
 	});
 	var navigation = sessionStorage.navigation;
@@ -60,37 +58,49 @@ $(function(){
 </script>
 
 	
+	<style>
+	.inptext{
+		width:30px;
+	}
+
+	.iorb{
+		display:inline-block;
+	}
+	.float{
+		float:left;
+	}
 	
-	<!--引入myhouse-->
-	
-<div style='height:60;background:#fee;text-align:center;font:normal bold 20px/60px normal'>
-	我发布的信息
-</div>
-<?php if(is_array($arr)): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style="border-bottom:7px solid #eee;height:130px;padding:20px 10px;font-size:12px">
-		<div style='height:20px;border:0px solid'>
-			<div style='float:left'><span style='color:#999'>标题：</span><span style='color:#555'><?php echo ($vo["bt"]); ?></span></div>
-			<div style='float:right;border:0px solid;color:#ED5565'>
-				<?php echo $vo['stat']==1?'正常显示':'暂封'; ?>
+	.dh div{
+		border:1px solid #4192E3;
+		display:inline-block;
+		padding:4px 8px;
+		font-size:12px;
+		margin-left:10px;
+	}
+</style>
+
+<div style='font:normal normal 12px normal;padding-left:15px;margin-bottom:0px'>
+	<?php if(is_array($arr)): $i = 0; $__LIST__ = $arr;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style='border-bottom:1px solid #ccc;margin:25px auto;'>	<!--信息展示-->
+			<div style='height:70px;width:22%;border:0px solid' class='float'>
+				<?php if($vo['fwtp']=='null'){ $imgs[0]='imgs/01.jpg'; }else{ $imgs = json_decode($vo['fwtp']); } ?>
+				<img src='/house/Public/<?php echo ($imgs[0]); ?>' width=70 height=70/>
 			</div>
-		</div>
-		<div style='margin-top:10px'>
-			<span style='color:#999'>面积：</span><span style='color:#555'><?php echo ($vo["mj"]); ?>平方</span>　　
-			<span style='color:#999'>售价：</span><span style='color:#555'><?php echo ($vo["sj"]); ?>万元</span>
-		</div>
-		<div style='margin-top:10px'>
-			<span style='color:#999'>位置：</span><span style='color:#555'><?php echo ($vo["wz"]); ?></span>　　
-			<span style='color:#999'>户型：</span><span style='color:#555'><?php echo ($vo["hx"]); ?></span>
-		</div>
-		<div style='margin-top:10px'>
-			<span style='color:#999'>发布时间：</span><span style='color:#555'><?php echo ($vo["fbsj"]); ?></span>
-		</div>
-		<div style='border:10x solid;margin:10px 0'>
-			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px' onclick="location='/house/index.php/Home/Index/moreinfo/id/<?php echo ($vo["id"]); ?>'">查看</div>
-			<div style='border:1px solid #66CC66;padding:5px;color:#66CC66;float:left;margin-right:10px;' onclick="location='/house/index.php/Home/Index/edit/id/<?php echo ($vo["id"]); ?>'">修改资料</div>
-			<div style='margin-right:10px;border:1px solid #66CC66;padding:5px;color:#66CC66;float:left' onclick="location='/house/index.php/Home/Index/addimg/id/<?php echo ($vo["id"]); ?>'">图片管理</div>
-			<div style='border:1px solid #4192E3;padding:5px;color:#4192E3;float:right' onclick="location='/house/index.php/Home/Index/del?id=<?php echo ($vo["id"]); ?>'">删除</div>
-		</div>
-	</div><?php endforeach; endif; else: echo "" ;endif; ?>
+			<div style='height:50px;width:75%;border:0px solid' class='float'>
+				<div style='padding:3 0 0 30px '><?php echo ($vo["bt"]); ?>　类型：<?php echo ($vo["lx"]); ?></div>
+				<div style='padding:3 0 0 30px '>户型：<?php echo ($vo["hx"]); ?></div>
+				<div style='padding:3 0 0 30px '>面积：<?php echo ($vo["mj"]); ?>平　售价：<?php echo ($vo["sj"]); ?>万</div>
+				<div style='padding:3 0 0 30px;' >
+					<?php echo ($vo["fbsj"]); ?>
+				</div>
+			</div>
+			<div style='clear:both;padding:10 0'>
+				<a href='/house/index.php/Home/Index/moreinfo/id/<?php echo ($vo["id"]); ?>' style='text-decoration:none'>　查看 </a>
+				<a href='/house/index.php/Admin/Index/del/id/<?php echo ($vo["id"]); ?>' style='text-decoration:none'>　删除 </a>
+				　状态：<a href='/house/index.php/Admin/Index/stat/id/<?php echo ($vo["id"]); ?>/pnow/<?php echo ($page2["pnow"]); ?>/stat/<?php echo ($vo["stat"]); ?>' style='text-decoration:none'><?php echo $vo['stat']==1?'显示':"<span style='color:red'>暂封</span>" ?> </a>
+			</div>
+		</div><?php endforeach; endif; else: echo "" ;endif; ?>
+</div>
+
 	<!--分页-->
 	<?php if($page2['pnum'] > 0): ?><div style='margin-bottom:100px'>
 		<div style='display:inline-block;margin:3px'>
@@ -101,7 +111,7 @@ $(function(){
 			<a style='text-decoration:none' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=1'> 1 </a>
 		</div>..
 
-		<?php $__FOR_START_22394__=$page2['pmin'];$__FOR_END_22394__=$page2['pmax'];for($k=$__FOR_START_22394__;$k <= $__FOR_END_22394__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px;background:#2E6AB1;font-weight:bold'>
+		<?php $__FOR_START_8727__=$page2['pmin'];$__FOR_END_8727__=$page2['pmax'];for($k=$__FOR_START_8727__;$k <= $__FOR_END_8727__;$k+=1){ if($page2['pnow'] == $k): ?><div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px;background:#2E6AB1;font-weight:bold'>
 					<a style='text-decoration:none;color:#fff' href='<?php echo ($_SERVER['PHP_SELF']); ?>?pnow=<?php echo ($k); ?>'><?php echo ($k); ?></a>
 				</div>	
 			<?php else: ?>

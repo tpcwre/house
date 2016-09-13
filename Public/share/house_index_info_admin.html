@@ -1,0 +1,50 @@
+<style>
+	.inptext{
+		width:30px;
+	}
+
+	.iorb{
+		display:inline-block;
+	}
+	.float{
+		float:left;
+	}
+	
+	.dh div{
+		border:1px solid #4192E3;
+		display:inline-block;
+		padding:4px 8px;
+		font-size:12px;
+		margin-left:10px;
+	}
+</style>
+
+<div style='font:normal normal 12px normal;padding-left:15px;margin-bottom:0px'>
+	<volist name='arr' id='vo'>
+		<div style='border-bottom:1px solid #ccc;margin:25px auto;'>	<!--信息展示-->
+			<div style='height:70px;width:22%;border:0px solid' class='float'>
+				<php>
+					if($vo['fwtp']=='null'){
+						$imgs[0]='imgs/01.jpg';
+					}else{
+						$imgs = json_decode($vo['fwtp']);
+					}
+				</php>
+				<img src='__PUBLIC__/{$imgs[0]}' width=70 height=70/>
+			</div>
+			<div style='height:50px;width:75%;border:0px solid' class='float'>
+				<div style='padding:3 0 0 30px '>{$vo.bt}　类型：{$vo.lx}</div>
+				<div style='padding:3 0 0 30px '>户型：{$vo.hx}</div>
+				<div style='padding:3 0 0 30px '>面积：{$vo.mj}平　售价：{$vo.sj}万</div>
+				<div style='padding:3 0 0 30px;' >
+					{$vo.fbsj}
+				</div>
+			</div>
+			<div style='clear:both;padding:10 0'>
+				<a href='__APP__/Home/Index/moreinfo/id/{$vo.id}' style='text-decoration:none'>　查看 </a>
+				<a href='__URL__/del/id/{$vo.id}' style='text-decoration:none'>　删除 </a>
+				　状态：<a href='__URL__/stat/id/{$vo.id}/pnow/{$page2.pnow}/stat/{$vo.stat}' style='text-decoration:none'><php>echo $vo['stat']==1?'显示':"<span style='color:red'>暂封</span>"</php> </a>
+			</div>
+		</div>
+	</volist>
+</div>

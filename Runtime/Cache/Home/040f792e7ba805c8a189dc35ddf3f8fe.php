@@ -10,7 +10,7 @@
 	<script>
 		sessionStorage.navigation='wdxx';
 	</script>
-	<title>图片管理</title>
+	<title>修改信息</title>
 
 	
 </head>
@@ -60,26 +60,44 @@ $(function(){
 </script>
 
 	
-	
-	<div style='height:40;background:#fee;text-align:center;font:normal bold 15px/40px normal'>
-		图片管理
+	<div style='height:60;background:#fee;text-align:center;font:normal bold 20px/60px normal'>
+		修改信息
 	</div>
-	<div style="width:60%;margin:0 auto">
 
-	<!--图片上传-->
-	<form action='/house/index.php/Home/Index/addimg_c' method='post' enctype="multipart/form-data">
-		<input type='hidden' name='id' value='<?php echo ($id); ?>' />
-		<p><input type='file' name='img' /></p>
-		<p style='text-align:center'><input type='submit' value='上传'/></p>
-	</form>
+	<div style='padding: 0 25px;margin-bottom:100px'>
+		<form action='/house/index.php/Home/Index/edit_c' method='post'>
+			<p><input type='hidden' name='id' value='null' /></p>
+			<input type='hidden' name='id' value='<?php echo ($arr["id"]); ?>' />
+			<p>　　标题：<input type='text' name='bt' style="width:155px" value='<?php echo ($arr["bt"]); ?>' /></p>
+			<p>　　类型：
+				<?php if($_SESSION['uid']== 401): ?><input type='hidden' name='lx' value='2' />全新
+				<?php else: ?>
+					<?php $arr['lx']==3?$lx3='checked':$lx4='checked'; ?>
+					<input type='radio' name='lx' id='lx3' <?php echo ($lx3); ?> value='3' /><label for='lx3'>二手</label>
+					<input type='radio' name='lx' id='lx4' <?php echo ($lx4); ?> value='4' /><label for='lx4'>出租</label><?php endif; ?>
+			</p>
+			<?php $hxs = explode(',',$arr['hx']); ?>
+			<p>　　户型：<input type='text' name='hx_s' style="width:25px" value='<?php echo ($hxs[0]); ?>'/>室
+						<input type='text' name='hx_t' style="width:25px" value='<?php echo ($hxs[1]); ?>' />厅
+						<input type='text' name='hx_c' style="width:25px" value='<?php echo ($hxs[2]); ?>' />厨
+						<input type='text' name='hx_w' style="width:25px" value='<?php echo ($hxs[3]); ?>' />卫
+			</p>
+			<p>　　面积：<input type='tex' name='mj' style="width:155px" value='<?php echo ($arr["mj"]); ?>' />平米</p>
+			<p>　　售价：<input type='tex' name='sj' style="width:155px" value='<?php echo ($arr["sj"]); ?>' />万元</p>
+			<p>　　位置：<input type='tex' name='wz' style="width:155px" value='<?php echo ($arr["wz"]); ?>' /></p>
+			<p><input type='hidden' name='fwtp' value='null' /></p>
+			<p>　　电话：<input type='tex' name='dh' style="width:155px" value='<?php echo ($arr["dh"]); ?>' /></p>
+			<p>　联系人：<input type='tex' name='lxr' style="width:155px"  value='<?php echo ($arr["lxr"]); ?>' /></p>
+			<p>详细信息：<textarea rows=8 style='resize:none' name='xxxx' /><?php echo ((isset($arr["xxxx"]) && ($arr["xxxx"] !== ""))?($arr["xxxx"]):''); ?></textarea></p>
+			<p>
+				<?php if(is_array($errors)): $i = 0; $__LIST__ = $errors;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><p style='color:red;text-align:center'><?php echo ($vo); ?></p><?php endforeach; endif; else: echo "" ;endif; ?>
+			</p>
+			<p style='text-align:center'>
+				<input type='submit' value='修改' />
+				<input type='reset' value='重置' />
+			</p>
+		</form>
 	</div>
-	
-	<!--遍历以上传的图片-->
-	<?php if(is_array($arr2)): $i = 0; $__LIST__ = $arr2;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?><div style='width:80%;margin:10 auto'>
-			<img src='/house/Public/<?php echo ($vo); ?>' width=100%/>
-		</div>
-		<div style="color:#faa;text-align:center" onclick="location='/house/index.php/Home/Index/imgdel/id/<?php echo ($id); ?>/item/<?php echo ($key); ?>'">删除</div><?php endforeach; endif; else: echo "" ;endif; ?>
-	<div style='margin:100px'></div>
 
 
 	<!--引入底部导航   (固定)  -->

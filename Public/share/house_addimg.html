@@ -1,0 +1,22 @@
+
+	<div style='height:40;background:#fee;text-align:center;font:normal bold 15px/40px normal'>
+		图片管理
+	</div>
+	<div style="width:60%;margin:0 auto">
+
+	<!--图片上传-->
+	<form action='__URL__/addimg_c' method='post' enctype="multipart/form-data">
+		<input type='hidden' name='id' value='{$id}' />
+		<p><input type='file' name='img' /></p>
+		<p style='text-align:center'><input type='submit' value='上传'/></p>
+	</form>
+	</div>
+	
+	<!--遍历以上传的图片-->
+	<volist name='arr2' item='key' id='vo'>
+		<div style='width:80%;margin:10 auto'>
+			<img src='__PUBLIC__/{$vo}' width=100%/>
+		</div>
+		<div style="color:#faa;text-align:center" onclick="location='__URL__/imgdel/id/{$id}/item/{$key}'">删除</div>
+	</volist>
+	<div style='margin:100px'></div>

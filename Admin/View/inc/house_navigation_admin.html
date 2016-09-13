@@ -1,0 +1,33 @@
+<div style='height:40;background:#4192E3;text-align:center;font:normal bold 15px/40px normal'>
+	<div id='navback' style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:12%;height:40px;background:url(__PUBLIC__/01.png);background-repeat:no-repeat'></div>
+	
+	<div id='xxgl' class='navc' style='background:#fff;float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%;color:#4192E3' >信息管理</div>
+	<div id='fbxx' class='navc' style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:22%' >发布信息</div>
+	<div id='wdxx' class='navc' style='float:left;color:#fff;font:normal normal 12px/40px normal;text-align:center;width:26%'>管理我的信息</div>
+	<div style='float:left;color:#4192E3;font:normal normal 12px/40px normal;text-align:center;width:18%;background:#fff'></div>
+
+</div>
+<script>
+$(function(){
+	$("#navback").click(function(){
+		history.go(-1);
+	});
+	$('#xxgl').click(function(){
+		location='__URL__/index';
+	});
+	$('#fbxx').click(function(){
+		location="__APP__/Home/Index/addinfo";
+	});
+	$('#wdxx').click(function(){
+		location="__URL__/myhouse";
+	});
+
+	var navigation = sessionStorage.navigation;
+	if(navigation){
+		$('.navc').css('background','#4192E3');
+		$('.navc').css('color','#fff');
+		$('#'+navigation).css('background','#fff');
+		$('#'+navigation).css('color','#4192E3');
+	}
+});
+</script>

@@ -1,0 +1,40 @@
+
+<html>
+<head>
+	<!--引入public下的head公共属性-->
+	<include file='./Public/share/house_head_contents.html' />
+
+
+	<title>房屋信息后台管理</title>
+	<script>sessionStorage.navigation='fyxx';</script>
+
+</head>
+<body style="padding:0;margin:0">
+	<!---->
+	<include file='./Public/share/house_navigation.html' />
+
+
+
+
+
+<!--分页-->
+	<if condition="$page2['pnum'] gt 0" >
+		<include file='./Public/share/house_fpage.html' />
+	</if>
+
+
+
+	<include file='./Public/share/house_navigation_bottom.html' />
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+

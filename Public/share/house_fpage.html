@@ -2,6 +2,11 @@
 		<div style='display:inline-block;margin:3px'>
 			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['plast']}'> < </a>
 		</div>
+
+		<div style='display:inline-block;margin:3px;border:1px solid #9AAFE5;padding:3px;font-weight:bold'>
+			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow=1'> 1 </a>
+		</div>..
+
 		<for start="$page2['pmin']" end="$page2['pmax']" comparison='elt' name='k'>
 			<if condition="$page2['pnow'] eq $k">
 				<div style='display:inline-block;margin:3px;border:1px solid blue;padding:3px;background:#2E6AB1;font-weight:bold'>
@@ -16,10 +21,8 @@
 		<div style='display:inline-block;margin:3px'>
 			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnext']}'> > </a>
 		</div>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow=1'>首页</a>
-		</div>
-		<div style='display:inline-block;margin:3px'>
-			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>尾页</a>
+		..
+		<div style='display:inline-block;margin:3px;border:1px solid #9AAFE5;padding:3px;font-weight:bold'>
+			<a style='text-decoration:none' href='{$Think.server.PHP_SELF}?pnow={$page2['pnum']}'>{$page2['pnum']}</a>
 		</div>
 	</div>

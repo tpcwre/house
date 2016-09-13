@@ -1,0 +1,22 @@
+
+<html>
+<head>
+	<!--引入head公共属性   (固定)  -->
+	<include file='./Public/share/house_head_contents.html' />
+	
+	<title>房屋租售信息</title>
+	<script>sessionStorage.navigation='fyxx';</script>
+</head>
+<body style="padding:0;margin:0;background:#eee">
+	<!--引入house 导航栏   (固定)  -->
+	<include file='./Public/share/house_navigation.html' />
+	<!--引入房源信息-->
+	<include file='inc/house_index_info' />
+	<!--分页-->
+	<if condition="$page2['pnum'] gt 0" >
+		<include file='./Public/share/house_fpage.html' />
+	</if>
+	<!--引入底部导航   (固定)  -->
+	<include file='./Public/share/house_navigation_bottom.html' />
+</body>
+</html>
