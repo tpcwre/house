@@ -11,5 +11,6 @@ return array(
 		'DB_FIELDTYPE'		=>  false,	//是否字段检查
 		'DB_FIELDS_CACHE'	=>  true,	//是否字段缓存,debug模式下不生效
 		'DEFAULT_TIMEZONE'=>'Asia/Singapore',
+		'SHOW_PAGE_TRACE'=>true,
 		
 );

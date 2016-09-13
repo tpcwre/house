@@ -7,6 +7,7 @@ class IndexController extends Controller {
 
     //首页
     public function index(){
+        DUMP(C('SHOW_PAGE_TRACE'));
         session('uid',402);
         $uid = I('session.uid');
         if($uid == 401){

@@ -4,6 +4,7 @@
 //	define('APP_PATH','./House/');			//-- 定义应用路径
 //	define('BIND_MODULE','Admin');
 	define('APP_DEBUG',true);			//-- 开启调试模式
+	define('SHOW_PAGE_TRACE',1);
 
 	function vardump($arr){
 		echo '<pre>';
