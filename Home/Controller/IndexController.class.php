@@ -7,7 +7,7 @@ class IndexController extends Controller {
 
     //首页
     public function index(){
-        DUMP(C('SHOW_PAGE_TRACE'));
+        //DUMP(C('SHOW_PAGE_TRACE'));
         session('uid',402);
         $uid = I('session.uid');
         if($uid == 401){
@@ -40,8 +40,9 @@ class IndexController extends Controller {
         $page = $myfn->page($count,5);
         $this->assign('page2',$page);
 
-    	$arr = $h->field('id,bt,hx,mj,sj,lx,fbsj,fwtp')->where($w)->page($page['pnow'],$page['pline'])->order("id desc")->select();
-        //vardump($arr);
+        $arr = $h->field('id,bt,hx,mj,sj,lx,fbsj,fwtp')->where($w)->page($page['pnow'],$page['pline'])->order("id desc")->select();
+       //$arr = $h->field('id')->where($w)->page($page['pnow'],$page['pline'])->order("id desc")->select();
+
         foreach($arr as $k=>$v){
             switch($arr[$k]['lx']){
                 case 2:$arr[$k]['lx']='全新';break;

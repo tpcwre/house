@@ -10,12 +10,12 @@
 <script>
 	<!--设置底部功能栏-->
 	$(function(){
-		var ssw = window.screen.width;		//屏幕宽度
+		var ssw = screen.availWidth;		//屏幕宽度
 		var tth = ssw*0.165;				//计算出底部导航条的高度
 		$("#navigation_bottom").css('height',tth);
 		$("#navigation_bottom").css('background','url(__PUBLIC__/imgs/bottom.png)');
 		$("#navigation_bottom").css('backgroundSize','cover');
-		var ssh = window.screen.height;		//屏幕高度
+		var ssh = screen.availHeight;		//屏幕高度
 		var tttop = ssh - tth;				//底部导航的定位点
 		$('#navigation_bottom').css('width','100%');
 		$("#navigation_bottom").css("position",'fixed');
